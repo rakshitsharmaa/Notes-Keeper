@@ -6,5 +6,5 @@ export default function Note(props){
             <h1>{props.title}</h1>
             <p>{props.content}</p>
         </div>
-    )
+    );
 }
