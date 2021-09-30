@@ -15,18 +15,27 @@ export default function App() {
        return[...prevNotes,newNote];
     });
     }
+    function deleteNode(id){
+        setNotes(prevNotes=>{
+          return  prevNotes.filter((noteItem,index)=>{
+                return index!==id
+            })
+        })
+    }
     return (
         <div>
             <Header/>
             <CreateArea onAdd= {addNote}/>
-            {notes.map((note)=>{
+            {notes.map((note,index)=>{
                 return(
                     <Note
+                    key={index}
+                    id={index} 
                     title={note.title} 
                     content={note.content}
+                    onDelete={deleteNode}
                     />
                 )
-              
             }  
     )};
             <Footer/>
